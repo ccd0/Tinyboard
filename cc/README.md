@@ -7,18 +7,12 @@ http://containerchan.org/tb/demo/
 
 Be aware that this is beta software.  Please report any bugs you find.
 
-Much of the code is not specific to Tinyboard, and you are welcome to use it in your own projects.  See the [core](https://github.com/ccd0/containerchan/tree/core) branch for a version without material from Tinyboard.
+Much of the code is not specific to Tinyboard, and you are welcome to use it in your own projects.  See https://github.com/ccd0/containerchan for a version without material from Tinyboard.
 
-Installation
-------------
+Setup
+-----
 
-Create a directory named cc at the root of your Tinyboard installation.  Upload these files into that directory.
-
-Replace the files templates/post_thread.html and templates/post_reply.html with the files given here.
-
-Move video.png to the static directory.
-
-Add these lines to inc/instance-config.php:
+To enable WebM posting, add these lines to inc/instance-config.php:
 
     $config['allowed_ext_files'][] = 'webm';
     $config['file_icons']['webm'] = 'video.png';
@@ -27,25 +21,3 @@ Add these lines to inc/instance-config.php:
     require_once 'cc/posthandler.php';
     event_handler('post', 'postHandler');
 
-And add this to stylesheets/style.css:
-
-    video.post-image {
-        display: block;
-        float: left;
-        margin: 10px 20px;
-        border: none;
-    }
-    div.post video.post-image {
-        padding: 0px;
-        margin: 10px 25px 5px 5px;
-    }
-    span.settings {
-        position: fixed;
-        top: 1em;
-        right: 1em;
-    }
-
-License
--------
-
-See [LICENSE.md](https://github.com/ccd0/containerchan/blob/master/LICENSE.md).
